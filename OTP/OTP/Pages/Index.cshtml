@@ -1,0 +1,21 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h2>رمز یک‌بارمصرف تولید شده:</h2>
+<p style="font-weight:bold; font-size:24px; direction:ltr;">@ViewData["GeneratedPassword"]</p>
+
+<form method="post">
+    <label for="userInput">رمز را وارد کنید:</label>
+    <input type="text" id="userInput" name="UserEntry" class="form-control" />
+    <button type="submit" class="btn btn-primary mt-2">بررسی رمز</button>
+</form>
+
+@if (ViewData["CheckResult"] != null)
+{
+    <p class="mt-3" style="color:@(ViewData["CheckResult"].ToString().Contains("success") ? "green" : "red")">
+        نتیجه: @ViewData["CheckResult"]
+    </p>
+}
